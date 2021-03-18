@@ -35,6 +35,13 @@ Can be used in `rime-disable-predicates' and `rime-inline-predicates'."
        (not (or (nth 3 (syntax-ppss))
                 (nth 4 (syntax-ppss))))))
 
+(defun rime-predicate-meow-p ()
+  ""
+  (and (fboundp 'meow-mode)
+       (or (meow-normal-mode-p)
+           (meow-motion-mode-p)
+           (meow-keypad-mode-p))))
+
 (defun rime-predicate-evil-mode-p ()
   "Detect whether the current buffer is in `evil' state.
 
